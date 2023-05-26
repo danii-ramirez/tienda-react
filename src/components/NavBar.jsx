@@ -19,9 +19,9 @@ export default function NavBar() {
 
     return (
         <>
-            <Navbar bg="light" expand="lg">
+            <Navbar bg="primary" expand="lg">
                 <Container>
-                    <Navbar.Brand href="#">
+                    <Navbar.Brand href="/">
                         Neo
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />

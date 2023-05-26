@@ -1,13 +1,49 @@
-export default function ItemListContainer({ greeting }) {
-    return (
-        <>
-            <div className="container-fluid">
-                <div className="row justify-content-center mt-3">
-                    <div className="col-auto">
-                        <h1>{greeting}</h1>
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import ItemList from "./ItemList";
+import Loader from "./Loader";
+
+export default function ItemListContainer() {
+    const [products, setProducts] = useState([])
+    const [loader, setLoader] = useState(true)
+    const { category } = useParams()
+
+    const getProducts = async () => {
+        if (category === undefined) {
+            const res = await fetch('https://fakestoreapi.com/products')
+            return res.json()
+        } else {
+            const res = await fetch(`https://fakestoreapi.com/products/category/${category}`)
+            return res.json()
+        }
+    }
+
+    useEffect(() => {
+        setTimeout(() => {
+            getProducts().then((data) => setProducts(data))
+            setLoader(false)
+        }, 3000)
+    }, [category])
+
+    if (loader) {
+        return <Loader />
+    } else {
+        return (
+            <>
+                <div className="container-fluid">
+                    <div className="row justify-content-center mt-2">
+                        {products.map(prod => {
+                            return (
+                                <div key={prod.id} className="col-auto">
+                                    <ItemList key={prod.id}
+                                        {...prod}
+                                    />
+                                </div>
+                            )
+                        })}
                     </div>
                 </div>
-            </div>
-        </>
-    );
+            </>
+        );
+    }
 }
