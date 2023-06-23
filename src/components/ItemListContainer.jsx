@@ -29,21 +29,9 @@ export default function ItemListContainer() {
         return <Loader />
     } else {
         return (
-            <>
-                <div className="container-fluid">
-                    <div className="row justify-content-center mt-2">
-                        {products.map(prod => {
-                            return (
-                                <div key={prod.id} className="col-auto">
-                                    <ItemList key={prod.id}
-                                        {...prod}
-                                    />
-                                </div>
-                            )
-                        })}
-                    </div>
-                </div>
-            </>
+            <div className="container-fluid">
+                <ItemList products={products} />
+            </div>
         );
     }
 }
