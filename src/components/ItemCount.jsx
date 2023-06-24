@@ -19,12 +19,20 @@ export default function ItemCount({ stock }) {
 
     return (
         <>
-            <ButtonGroup>
-                <Button variant="secondary" onClick={handledSubstract}>-</Button>
-                <Button variant="secondary" disabled>{count}</Button>
-                <Button variant="secondary" onClick={handledAdd}>+</Button>
-            </ButtonGroup>
-            <Button variant="primary">Agregar al carrito</Button>
+            <div className="row justify-content-center">
+                <div className="col-auto">
+                    <ButtonGroup>
+                        <Button variant="secondary" onClick={handledSubstract}>-</Button>
+                        <Button variant="secondary" disabled>{count}</Button>
+                        <Button variant="secondary" onClick={handledAdd}>+</Button>
+                    </ButtonGroup>
+                </div>
+            </div>
+            <div className="row justify-content-center mt-1">
+                <div className="col-auto">
+                    <Button variant="primary">Agregar al carrito</Button>
+                </div>
+            </div>
         </>
     )
 }
