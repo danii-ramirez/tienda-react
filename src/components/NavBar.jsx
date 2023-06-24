@@ -12,16 +12,16 @@ export default function NavBar() {
                         <img
                             alt="neo logo"
                             src="/logo.png"
-                            height="5rem"
-                            width="11rem"
+                            height="80px"
+                            width="150px"
                         />
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
-                            <Nav.Link href="/category/playstation5">Playstation 5</Nav.Link>
-                            <Nav.Link href="/category/xbox">XBOX</Nav.Link>
-                            <Nav.Link href="/category/nintendoswitch">Nintendo Switch</Nav.Link>
+                            <Nav.Link href="/category/Playstation 5">Playstation 5</Nav.Link>
+                            <Nav.Link href="/category/XBOX">XBOX</Nav.Link>
+                            <Nav.Link href="/category/Nintendo Switch">Nintendo Switch</Nav.Link>
                         </Nav>
                         <CartWidget />
                     </Navbar.Collapse>
