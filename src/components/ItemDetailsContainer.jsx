@@ -21,7 +21,6 @@ export default function ItemDetailsContainer() {
     if (loader) {
         return <Loader />
     } else {
-
         if (product === undefined) {
             return <NotContent />
         } else {

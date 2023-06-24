@@ -6,7 +6,7 @@ import NotContent from "./NotContent"
 import { getItems, getItemsByCategory } from "../services/firebase";
 
 export default function ItemListContainer() {
-    const { category } = useParams(undefined)
+    const { category } = useParams()
     const [products, setProducts] = useState([])
     const [loader, setLoader] = useState(true)
 
@@ -29,7 +29,7 @@ export default function ItemListContainer() {
     } else {
         if (products.length > 0) {
             return (
-                <div className="container-fluid">
+                <div className="container">
                     <ItemList products={products} />
                 </div>
             );

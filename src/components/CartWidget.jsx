@@ -6,7 +6,8 @@ export default function CartWidget() {
 
     return (
         <>
-            <i className="bi bi-cart"></i> {countItems()}
+            <i className="bi bi-cart" style={{ fontSize: '35px', marginRight: '5px' }}></i>
+            <span style={{ fontSize: '35px' }}>{countItems()}</span>
         </>
     );
 }

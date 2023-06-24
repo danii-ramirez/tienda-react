@@ -1,20 +1,28 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import Alert from 'react-bootstrap/Alert';
+import { Link } from 'react-router-dom';
 
-export default function Item({ id, title, img, price }) {
+export default function Item({ id, title, img, price, discount, stock }) {
     return (
-        <div className='col-3'>
-            <Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" src={img} style={{ height: '300px' }} />
+        <div className='col-auto'>
+            <Card style={{ height: '30rem', width: '20rem' }}>
+                <Card.Img variant='top' src={img} height='70%' />
                 <Card.Body>
-                    <Card.Title>{title}</Card.Title>
+                    <Card.Title className='text-center'>{title}</Card.Title>
                     <Card.Text>
-                        Price: ${price}
+                        <span style={{ marginRight: '50px' }}>Price: ${price}</span>
+
+                        {
+                            discount > 0 &&
+                            <span>Discount: ${discount}</span>
+                        }
                     </Card.Text>
-                    <Alert.Link href={`/item/${id}`}>
-                        <Button variant="primary">Comprar</Button>
-                    </Alert.Link>
+                    <Card.Text>
+                        <span>Stock: {stock}</span>
+                    </Card.Text>
+                    <Link to={`/item/${id}`}>
+                        <Button variant='primary'>Comprar</Button>
+                    </Link>
                 </Card.Body>
             </Card>
         </div>
