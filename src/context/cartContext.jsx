@@ -34,8 +34,12 @@ function CartContextProvider({ children }) {
         return total
     }
 
+    function getItems() {
+        return cart
+    }
+
     return (
-        <CartContext.Provider value={{ cart, addItem, removeItem, countItems }}>
+        <CartContext.Provider value={{ cart, addItem, removeItem, countItems, getItems }}>
             {children}
         </CartContext.Provider>
     )

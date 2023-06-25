@@ -1,8 +1,9 @@
 import { useState } from "react"
 import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
+import { Link } from "react-router-dom";
 
-export default function ItemCount({ stock }) {
+export default function ItemCount({ stock, onClickAddToCart }) {
     const [count, setCount] = useState(0);
 
     function handledAdd() {
@@ -30,7 +31,12 @@ export default function ItemCount({ stock }) {
             </div>
             <div className="row justify-content-center mt-1">
                 <div className="col-auto">
-                    <Button variant="primary">Agregar al carrito</Button>
+                    <Link to={'/cart'}>
+                        <Button variant="primary" onClick={() => onClickAddToCart(count)}
+                            disabled={count === 0 ? true : false}>
+                            Agregar al carrito
+                        </Button>
+                    </Link>
                 </div>
             </div>
         </>
