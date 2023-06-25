@@ -11,7 +11,6 @@ export default function Item({ id, title, img, price, discount, stock }) {
                     <Card.Title className='text-center'>{title}</Card.Title>
                     <Card.Text>
                         <span style={{ marginRight: '50px' }}>Price: ${price}</span>
-
                         {
                             discount > 0 &&
                             <span>Discount: ${discount}</span>
