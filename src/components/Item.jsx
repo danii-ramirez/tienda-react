@@ -6,7 +6,7 @@ export default function Item({ id, title, img, price, discount, stock }) {
     return (
         <div className='col-auto'>
             <Card style={{ height: '30rem', width: '20rem' }}>
-                <Card.Img variant='top' src={img} height='70%' />
+                <Card.Img variant='top' src={img} height='60%' />
                 <Card.Body>
                     <Card.Title className='text-center'>{title}</Card.Title>
                     <Card.Text>
