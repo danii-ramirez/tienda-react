@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 import { CartContext } from "../context/cartContext";
-import ListGroup from 'react-bootstrap/ListGroup';
+import Table from 'react-bootstrap/Table';
 import { Button } from "react-bootstrap";
 
 export default function Cart() {
@@ -14,31 +14,40 @@ export default function Cart() {
     if (products.length > 0) {
         return (
             <div className="container mt-5">
-                <div className="row">
-                    <div className="col-5">
-                        <ListGroup as="ul">
-                            {
-                                products.map(prod => {
-                                    return (
-                                        <ListGroup.Item as="li" key={prod.id}
-                                            className="d-flex justify-content-between align-items-start">
-                                            <div className="ms-2 me-auto">
-                                                <div className="fw-bold">{prod.title}</div>
-                                                Cantidad: {prod.count}
-                                            </div>
-                                            <Button variant="primary" size="sm"
-                                                onClick={() => removeItem(prod.id)}>
-                                                x
-                                            </Button>
-                                        </ListGroup.Item>
-                                    )
-                                })
-                            }
-                        </ListGroup>
-                    </div>
-
-                    <div className="col-5">
-                        <h3 className="text-center">Total de la compra: $</h3>
+                <div className="row justify-content-center">
+                    <div className="col-8">
+                        <Table striped>
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Producto</th>
+                                    <th>Cantidad</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {
+                                    products.map((prod) => {
+                                        return (
+                                            <tr key={prod.div}>
+                                                <td>
+                                                    <img src={prod.img} alt={prod.title}
+                                                        height={'50px'} width={'100px'} />
+                                                </td>
+                                                <td>{prod.title}</td>
+                                                <td>{prod.count}</td>
+                                                <td>
+                                                    <Button variant="primary" size="sm"
+                                                        onClick={() => removeItem(prod.id)}>
+                                                        x
+                                                    </Button>
+                                                </td>
+                                            </tr>
+                                        )
+                                    })
+                                }
+                            </tbody>
+                        </Table>
                     </div>
                 </div>
             </div>
