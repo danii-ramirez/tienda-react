@@ -4,7 +4,6 @@ import ItemList from "./ItemList";
 import Loader from "./Loader";
 import NotContent from "./NotContent"
 import { getItems, getItemsByCategory } from "../services/firebase";
-// import ItemSearch from "./ItemSearch";
 
 export default function ItemListContainer() {
     const { category } = useParams()
@@ -31,7 +30,6 @@ export default function ItemListContainer() {
         if (products.length > 0) {
             return (
                 <div className="container">
-                    {/* <ItemSearch /> */}
                     <ItemList products={products} />
                 </div>
             );
